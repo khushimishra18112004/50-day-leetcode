@@ -1,0 +1,14 @@
+class Solution(object):
+    def detectCycle(self, head):
+        slow=head
+        fast=head
+
+        while fast is not None and fast.next is not None:
+            slow=slow.next
+            fast=fast.next.next
+            if fast==slow:
+                slow=head
+                while slow!=fast:
+                    slow=slow.next
+                    fast=fast.next
+                return slow    
